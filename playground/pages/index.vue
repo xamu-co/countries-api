@@ -5,7 +5,7 @@
 				<div class="txt --gap-30">
 					<h1 class="flx --flxRow --flx-start-center">
 						<img class="avatar --size-sm --bgColor-none" src="/countries-api.png" />
-						<span class="--txtColor">Countries API</span>
+						<span class="--txtColor">Xamu Countries</span>
 					</h1>
 					<div class="txt --gap-5">
 						<p class="--txtColor-dark5">
@@ -176,8 +176,8 @@
 					<h2 id="about">About the project</h2>
 					<p class="--txtSize-sm --txtColor-dark5">
 						Source:
-						<XamuActionLink href="https://github.com/vis97c/countries-api">
-							@vis97c/countries-api
+						<XamuActionLink href="https://github.com/xamu-co/countries-api">
+							@xamu-co/countries-api
 						</XamuActionLink>
 						. Built with
 						<XamuActionLink href="https://github.com/xamu-co/ui">Xamu UI</XamuActionLink>
@@ -195,13 +195,3 @@
 		</div>
 	</div>
 </template>
-
-<script setup lang="ts">
-	// eslint-disable-next-line import/no-unresolved
-	import { useHead } from "#imports";
-
-	// lifecycle
-	useHead({
-		title: "Home ⋅ Countries api",
-	});
-</script>
