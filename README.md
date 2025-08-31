@@ -6,7 +6,7 @@ Data provided by: https://github.com/dr5hn/countries-states-cities-database
 
 # Nuxt Module
 
-[![npm (scoped)](https://img.shields.io/npm/v/nuxt-countries-api)](https://github.com/vis97c/countries-api/tree/master) [![CircleCI](https://dl.circleci.com/status-badge/img/gh/vis97c/countries-api/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/vis97c/countries-api/tree/master)
+[![npm (scoped)](https://img.shields.io/npm/v/nuxt-countries-api)](https://github.com/xamu-co/countries-api/tree/master) [![CircleCI](https://dl.circleci.com/status-badge/img/gh/xamu-co/countries-api/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/xamu-co/countries-api/tree/master)
 
 ```shell
 npm i nuxt-countries-api
@@ -34,14 +34,14 @@ export default defineNuxtConfig({
 export default defineNuxtConfig({
 	modules: ["nuxt-countries-api"],
 	countries: {
-		base: "/api/countries",
+		base: "/_countries",
 	},
 });
 ```
 
-| Name | Type   | Default          | Description                         |
-| ---- | ------ | ---------------- | ----------------------------------- |
-| base | string | "/api/countries" | Base path to be used on nuxt server |
+| Name | Type   | Default        | Description                         |
+| ---- | ------ | -------------- | ----------------------------------- |
+| base | string | "/\_countries" | Base path to be used on nuxt server |
 
 ## Development
 

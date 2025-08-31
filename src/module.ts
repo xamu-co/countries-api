@@ -19,6 +19,7 @@ export default defineNuxtModule<CountriesModuleOptions>({
 		// @ts-ignore
 		nuxt.options.appConfig.countries = moduleOptions;
 
+		// Add generated files to nitro
 		nuxt.hook("nitro:config", async (nitroConfig) => {
 			nitroConfig.serverAssets ||= [];
 			nitroConfig.serverAssets.push({
@@ -30,22 +31,22 @@ export default defineNuxtModule<CountriesModuleOptions>({
 		// all countries
 		addServerHandler({
 			route: base,
-			handler: resolve(apiPath, "countries"),
+			handler: resolve(apiPath, "countries.get"),
 		});
 		// single country
 		addServerHandler({
 			route: `${base}/:country`,
-			handler: resolve(apiPath, "country"),
+			handler: resolve(apiPath, "country.get"),
 		});
 		// single state
 		addServerHandler({
 			route: `${base}/:country/:state`,
-			handler: resolve(apiPath, "country-state"),
+			handler: resolve(apiPath, "country-state.get"),
 		});
 		// single city
 		addServerHandler({
 			route: `${base}/:country/:state/:city`,
-			handler: resolve(apiPath, "country-state-city"),
+			handler: resolve(apiPath, "country-state-city.get"),
 		});
 	},
 });

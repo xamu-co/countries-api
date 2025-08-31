@@ -1,18 +1,18 @@
 {
   "name": "nuxt-countries-api",
   "version": "1.1.0",
-  "description": "Nuxt 3 module & countries api",
+  "description": "Nuxt 3 Self hosted REST API module with countries data",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vis97c/countries-api.git"
+    "url": "git+https://github.com/xamu-co/countries-api.git"
   },
   "publishConfig": {
     "access": "public"
   },
   "bugs": {
-    "url": "https://github.com/vis97c/countries-api/issues"
+    "url": "https://github.com/xamu-co/countries-api/issues"
   },
-  "homepage": "https://github.com/vis97c/countries-api#readme",
+  "homepage": "https://github.com/xamu-co/countries-api#readme",
   "keywords": [
     "indicatives",
     "countries with indicatives",
@@ -38,9 +38,9 @@
   },
   "main": "./dist/module.cjs",
   "types": "./dist/types.d.ts",
-  "packageManager": "yarn@1.22.21",
+  "packageManager": "yarn@1.22.4",
   "engines": {
-    "node": ">=18",
+    "node": ">=18.20.4",
     "yarn": ">=1.22.4"
   },
   "scripts": {
@@ -60,13 +60,13 @@
   "devDependencies": {
     "@commitlint/cli": "^9.1.1",
     "@commitlint/config-conventional": "^9.1.1",
-    "@nuxt/devtools": "^1.0.6",
-    "@nuxt/kit": "^3.10.1",
-    "@nuxt/module-builder": "^0.5.4",
-    "@nuxt/schema": "^3.8.2",
-    "@nuxt/test-utils": "^3.8.1",
+    "@nuxt/devtools": "latest",
+    "@nuxt/kit": "latest",
+    "@nuxt/module-builder": "latest",
+    "@nuxt/schema": "latest",
+    "@nuxt/test-utils": "latest",
     "@open-xamu-co/eslint-config": "^3.0.1",
-    "@open-xamu-co/ui-nuxt": "^3.0.0-next.2",
+    "@open-xamu-co/ui-nuxt": "^3.0.0-next.11",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/git": "^9.0.0",
     "@types/lodash": "^4.14.196",
@@ -86,7 +86,7 @@
     "nuxt": "^3.10.1",
     "prettier": "^3.0.0",
     "semantic-release": "^17.1.1",
-    "typescript": "^5.1.6",
+    "typescript": "^5.6.3",
     "vitest": "^0.33.0"
   },
   "husky": {

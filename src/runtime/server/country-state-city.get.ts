@@ -9,6 +9,7 @@ import {
 	makeJsonResponse,
 	makeMapCountryData,
 	makeMapStateData,
+	mapCityData,
 	supportedLangs,
 } from "./utils";
 
@@ -36,16 +37,14 @@ export default defineCachedEventHandler(
 				} else if (!supportedLangs.includes(lang)) {
 					const langs = supportedLangs.join(", ");
 
-					return JsonResponse(
-						`Unsupported translation, supported ones are: ${langs}`,
-						422
-					);
+					return JsonResponse(`Unsupported translation, supported ones are: ${langs}`, 422);
 				}
 			}
 
 			const mapCountryData = makeMapCountryData(lang, withStates, withCities);
 			const mapStateData = makeMapStateData(withCities);
 			const countryParam = getRouterParam(event, "country");
+
 			const countries: iCountry[] = await storage.getItem("index.json");
 			const country = countries.find(({ name, iso2, iso3, translations }) => {
 				const matchable = [...getMatches(name), iso2, iso3, ...Object.values(translations)];
@@ -75,19 +74,33 @@ export default defineCachedEventHandler(
 
 			// State does not exist
 			if (!stateParam || !stateData) {
-				return JsonResponse(
-					`No state with the given data was found within "${countryData.name}"`,
-					404
-				);
+				return JsonResponse(`No state with the given data was found within "${countryData.name}"`, 404);
 			}
 
-			const mappedState = mapStateData(stateData);
+			const cityParam = getRouterParam(event, "city");
+			const cityData = stateData.cities?.find(({ name }) => {
+				const matchable = getMatches(name);
+
+				return matchable
+					.filter((v) => !!v)
+					.map((v) => v.toLowerCase())
+					.includes(cityParam?.toLowerCase());
+			});
+
+			// City does not exist
+			if (!cityParam || !cityData) {
+				return JsonResponse(`No city with the given data was found within "${stateData.name}"`, 404);
+			}
+
+			const mappedCity = mapCityData(cityData);
 			const withCountry = typeof query.country === "string";
+			const withState = typeof query.state === "string";
 
-			if (withCountry) mappedState.country = mapCountryData(countryData);
+			if (withState) mappedCity.state = mapStateData(stateData);
+			if (withCountry) mappedCity.country = mapCountryData(countryData);
 
-			// Specific state
-			return JsonResponse(mappedState);
+			// Specific city
+			return JsonResponse(mappedCity);
 		} catch (error) {
 			// handle unexpected errors
 			if (process.env.DEBUG) console.error(error);
