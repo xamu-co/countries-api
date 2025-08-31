@@ -1,3 +1,6 @@
+import fs from "node:fs";
+import path from "node:path";
+
 const production = process.env.NODE_ENV === "production";
 const title = "Xamu Countries ⋅ Free REST API with countries data & Nuxt module.";
 const keywords =
@@ -19,6 +22,10 @@ function getStyleSheetPreload(href: string) {
 		href,
 	};
 }
+
+const loaderCss = fs.readFileSync(path.resolve(__dirname, "assets/css/loader.css"), {
+	encoding: "utf8",
+});
 
 export default defineNuxtConfig({
 	compatibilityDate: "2024-12-08",
@@ -63,6 +70,8 @@ export default defineNuxtConfig({
 					"https://unpkg.com/sweetalert2@^11/dist/sweetalert2.min.css",
 				].map(getStyleSheetPreload),
 			],
+			style: [{ innerHTML: loaderCss }],
+			noscript: [{ innerHTML: "This app requires javascript to work" }],
 		},
 	},
 	router: {

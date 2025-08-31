@@ -1,10 +1,16 @@
 /* eslint-disable import/no-unresolved */
-import _ from "lodash";
+import _ from "lodash-es";
 
 import { defineCachedEventHandler, getQuery, getRouterParam, useStorage } from "#imports";
 
 import type { iCountry, tSupportedLangs } from "../../types";
-import { getMatches, makeJsonResponse, makeMapCountryData, makeMapStateData, supportedLangs } from "./utils";
+import {
+	getMatches,
+	makeJsonResponse,
+	makeMapCountryData,
+	makeMapStateData,
+	supportedLangs,
+} from "./utils";
 
 /** Request chache in seconds */
 const maxAge = Number(process.env.REQUEST_CACHE) || 60 * 60 * 24;
@@ -30,7 +36,10 @@ export default defineCachedEventHandler(
 				} else if (!supportedLangs.includes(lang)) {
 					const langs = supportedLangs.join(", ");
 
-					return JsonResponse(`Unsupported translation, supported ones are: ${langs}`, 422);
+					return JsonResponse(
+						`Unsupported translation, supported ones are: ${langs}`,
+						422
+					);
 				}
 			}
 
@@ -66,7 +75,10 @@ export default defineCachedEventHandler(
 
 			// State does not exist
 			if (!stateParam || !stateData) {
-				return JsonResponse(`No state with the given data was found within "${countryData.name}"`, 404);
+				return JsonResponse(
+					`No state with the given data was found within "${countryData.name}"`,
+					404
+				);
 			}
 
 			const mappedState = mapStateData(stateData);

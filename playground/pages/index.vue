@@ -10,7 +10,9 @@
 					<div class="txt --gap-5">
 						<p class="--txtColor-dark5">
 							Public REST API with countries data, based on
-							<XamuActionLink href="https://github.com/dr5hn/countries-states-cities-database">
+							<XamuActionLink
+								href="https://github.com/dr5hn/countries-states-cities-database"
+							>
 								@dr5hn countries database
 							</XamuActionLink>
 							.
@@ -20,7 +22,9 @@
 						<p>
 							<b>
 								Use the
-								<XamuActionLink href="https://www.npmjs.com/package/nuxt-countries-api">
+								<XamuActionLink
+									href="https://www.npmjs.com/package/nuxt-countries-api"
+								>
 									nuxt module
 								</XamuActionLink>
 								for faster responses.
@@ -29,7 +33,8 @@
 						<p class="--txtSize-sm --txtColor-dark5">
 							Currently we are hosted on
 							<XamuActionLink href="https://render.com/">render</XamuActionLink>
-							free tier, which spins downs with inactivity, delaying some responses up to 50 secs.
+							free tier, which spins downs with inactivity, delaying some responses up
+							to 50 secs.
 						</p>
 					</div>
 					<a href="/#endpoints" class="bttn --size-lg">
@@ -65,7 +70,8 @@
 							</b>
 						</p>
 						<p class="--txtColor-dark5">
-							Supported translations are: kr, pt, nl, hr, fa, de, es, fr, ja, it, cn, tr.
+							Supported translations are: kr, pt, nl, hr, fa, de, es, fr, ja, it, cn,
+							tr.
 						</p>
 					</div>
 					<div class="txt --gap-10">
@@ -86,21 +92,23 @@
 								</b>
 							</p>
 							<p class="--txtColor-dark5">
-								The match could be made using the country iso2 code or any of the supported snake case
-								name translations.
+								The match could be made using the country iso2 code or any of the
+								supported snake case name translations.
 							</p>
 						</div>
 						<div class="flx --flxColumn --flx-start --gap-5">
 							<p>
 								<b>
 									Include the states using the
-									<XamuActionLink href="/api/v1/colombia?lang=es&states">"states"</XamuActionLink>
+									<XamuActionLink href="/api/v1/colombia?lang=es&states">
+										"states"
+									</XamuActionLink>
 									query.
 								</b>
 							</p>
 							<p class="--txtSize-sm --txtColor-dark5">
-								Use the "cities" query to include the cities of each state as well, requires the
-								"states" query.
+								Use the "cities" query to include the cities of each state as well,
+								requires the "states" query.
 							</p>
 						</div>
 					</div>
@@ -121,14 +129,17 @@
 										state
 									</XamuActionLink>
 									. Include the cities using the
-									<XamuActionLink href="/api/v1/colombia/valle-del-cauca?lang=es&cities">
+									<XamuActionLink
+										href="/api/v1/colombia/valle-del-cauca?lang=es&cities"
+									>
 										"cities"
 									</XamuActionLink>
 									query.
 								</b>
 							</p>
 							<p class="--txtColor-dark5">
-								The match could be made using the state iso2 code or the snake case name.
+								The match could be made using the state iso2 code or the snake case
+								name.
 							</p>
 						</div>
 						<div class="flx --flxColumn --flx-start --gap-5">
@@ -150,13 +161,17 @@
 							<p>
 								<b>
 									Get especific
-									<XamuActionLink href="/api/v1/colombia/valle-del-cauca/cali?lang=es">
+									<XamuActionLink
+										href="/api/v1/colombia/valle-del-cauca/cali?lang=es"
+									>
 										city
 									</XamuActionLink>
 									.
 								</b>
 							</p>
-							<p class="--txtColor-dark5">The match could be made using the city snake case name.</p>
+							<p class="--txtColor-dark5">
+								The match could be made using the city snake case name.
+							</p>
 						</div>
 						<div class="flx --flxColumn --flx-start --gap-5">
 							<p class="--txtSize-sm --txtColor-dark5">
@@ -180,7 +195,9 @@
 							@xamu-co/countries-api
 						</XamuActionLink>
 						. Built with
-						<XamuActionLink href="https://github.com/xamu-co/ui">Xamu UI</XamuActionLink>
+						<XamuActionLink href="https://github.com/xamu-co/ui">
+							Xamu UI
+						</XamuActionLink>
 						. Powered by
 						<XamuActionLink href="https://nuxt.com/">Nuxt3</XamuActionLink>
 						.
