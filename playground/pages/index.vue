@@ -186,7 +186,7 @@
 						.
 					</p>
 					<p class="--txtColor-dark5">
-						This is an open source project, built and mantain by
+						This is an open source project, built and mantained by
 						<XamuActionLink href="https://github.com/vis97c">@vis97c</XamuActionLink>
 						. Feel free to use it on your projects or suggest improvements.
 					</p>
