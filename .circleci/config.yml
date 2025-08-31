@@ -3,12 +3,27 @@
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
 version: 2.1
-orbs:
-    node: circleci/node@5.2.0
 defaults: &defaults
     working_directory: ~/repo
     docker:
-        - image: cimg/node:18.20.4
+        - image: cimg/node:20.19.3
+
+release: &release
+    <<: *defaults
+    steps:
+        - checkout
+        - attach_workspace:
+              at: ~/repo
+        # Download and cache dependencies
+        - restore_cache:
+              name: Restore Yarn Package Cache
+              key: yarn-{{ .Environment.CACHE_VERSION }}-{{ checksum "yarn.lock" }}
+        - run:
+              name: Install dependencies
+              command: yarn
+        - run:
+              name: Release to npm
+              command: yarn release
 
 jobs:
     setup:
@@ -16,20 +31,17 @@ jobs:
         steps:
             - checkout
             # Download and cache dependencies
-            - node/install-packages:
-                  cache-version: v1
-                  pkg-manager: yarn
-            - persist_to_workspace:
-                  root: ~/repo
+            - restore_cache:
+                  name: Restore Yarn Package Cache
+                  key: yarn-{{ .Environment.CACHE_VERSION }}-{{ checksum "yarn.lock" }}
+            - run:
+                  name: Install dependencies
+                  command: yarn
+            - save_cache:
+                  name: Save Yarn packages cache
+                  key: yarn-{{ .Environment.CACHE_VERSION }}-{{ checksum "yarn.lock" }}
                   paths:
                       - node_modules
-
-    check_commit_message:
-        <<: *defaults
-        steps:
-            - checkout
-            - attach_workspace:
-                  at: ~/repo
             - run:
                   name: Define environment variable with lastest commit's message
                   command: |
@@ -43,8 +55,13 @@ jobs:
         <<: *defaults
         steps:
             - checkout
-            - attach_workspace:
-                  at: ~/repo
+            # Download and cache dependencies
+            - restore_cache:
+                  name: Restore Yarn Package Cache
+                  key: yarn-{{ .Environment.CACHE_VERSION }}-{{ checksum "yarn.lock" }}
+            - run:
+                  name: Install dependencies
+                  command: yarn
             - run:
                   name: Build distributables
                   command: yarn build
@@ -60,9 +77,19 @@ jobs:
             - checkout
             - attach_workspace:
                   at: ~/repo
+            # Download and cache dependencies
+            - restore_cache:
+                  name: Restore Yarn Package Cache
+                  key: yarn-{{ .Environment.CACHE_VERSION }}-{{ checksum "yarn.lock" }}
+            - run:
+                  name: Install dependencies
+                  command: yarn
             - run:
                   name: Lint & check
                   command: yarn lint
+
+    prerelease:
+        <<: *release
 
     dry_release:
         <<: *defaults
@@ -70,57 +97,61 @@ jobs:
             - checkout
             - attach_workspace:
                   at: ~/repo
+            # Download and cache dependencies
+            - restore_cache:
+                  name: Restore Yarn Package Cache
+                  key: yarn-{{ .Environment.CACHE_VERSION }}-{{ checksum "yarn.lock" }}
+            - run:
+                  name: Install dependencies
+                  command: yarn
             - run:
                   name: Dry release
                   command: yarn release:dry
 
     release:
-        <<: *defaults
-        steps:
-            - checkout
-            - attach_workspace:
-                  at: ~/repo
-            - run:
-                  name: Release to npm
-                  command: yarn release
+        <<: *release
 
 workflows:
     check_and_release_workflow:
         jobs:
             - setup
-            - check_commit_message:
-                  requires:
-                      - setup
             - build:
                   requires:
-                      - check_commit_message
+                      - setup
             - check_code:
                   requires:
                       - build
-            - dry_release:
+            - prerelease:
                   context: npm-deploy
                   requires:
                       - check_code
                   filters:
                       branches:
                           only:
-                              - master
                               - next
-            - approve_release:
-                  type: approval
+            - dry_release:
+                  context: npm-deploy
                   requires:
-                      - dry_release
+                      - build
                   filters:
                       branches:
                           only:
                               - master
-                              - next
+            - approve_release:
+                  type: approval
+                  requires:
+                      - build
+                  filters:
+                      branches:
+                          only:
+                              - master
             - release:
                   context: npm-deploy
                   requires:
+                      - check_code
+                      - dry_release
                       - approve_release
                   filters:
                       branches:
                           only:
                               - master
-                              - next

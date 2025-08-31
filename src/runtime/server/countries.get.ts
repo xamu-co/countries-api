@@ -26,7 +26,10 @@ export default defineCachedEventHandler(
 				} else if (!supportedLangs.includes(lang)) {
 					const langs = supportedLangs.join(", ");
 
-					return JsonResponse(`Unsupported translation, supported ones are: ${langs}`, 422);
+					return JsonResponse(
+						`Unsupported translation, supported ones are: ${langs}`,
+						422
+					);
 				}
 			}
 
