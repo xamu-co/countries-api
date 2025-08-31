@@ -1,5 +1,20 @@
 Countries Nuxt Module
 
+# [2.0.0-next.1](https://github.com/xamu-co/countries-api/compare/v1.1.0...v2.0.0-next.1) (2025-08-31)
+
+
+### Bug Fixes
+
+* add loading animation ([f175fdf](https://github.com/xamu-co/countries-api/commit/f175fdf74c847796d0ccd09b9163ac408143f0ab))
+* bump to node +20 ([5719efb](https://github.com/xamu-co/countries-api/commit/5719efb81c310caaf91d18789434d8ca0553e528))
+* get method only ([16d1eba](https://github.com/xamu-co/countries-api/commit/16d1eba3ba97fc476016157b46cdb747788c2c7d))
+* seo improvements ([a1aae5c](https://github.com/xamu-co/countries-api/commit/a1aae5c344f5dfb7d22c156354f50d8c7247c2a2))
+
+
+### BREAKING CHANGES
+
+* node 20+ is required
+
 # [1.1.0](https://github.com/vis97c/countries-api/compare/v1.0.3...v1.1.0) (2024-08-19)
 
 
