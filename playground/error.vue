@@ -14,7 +14,11 @@
 								</XamuActionLink>
 							</div>
 						</template>
-						<XamuActionLink v-else rel="noopener" @click="clearError({ redirect: '/' })">
+						<XamuActionLink
+							v-else
+							rel="noopener"
+							@click="clearError({ redirect: '/' })"
+						>
 							Back home
 						</XamuActionLink>
 					</div>

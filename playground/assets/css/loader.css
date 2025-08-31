@@ -1,0 +1,38 @@
+@media only screen {
+	/* Loading animation for xamu
+	 * Requires the ".is--loaded" class to be injected in the body via js to be finished
+	 */
+	body {
+		background-color: #fff;
+	}
+
+	body:not(.is--loaded) {
+		height: 100%;
+	}
+
+	body::after {
+		content: "";
+		display: block;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-repeat: no-repeat;
+		transition: all 0.3s ease;
+		z-index: -1;
+		background-image: url("/countries-api.png");
+		background-position: 50% 50%;
+		background-size: auto 6rem;
+	}
+
+	body.is--loaded::after {
+		background-size: auto 12rem;
+	}
+
+	body.is--loaded::after,
+	body:not(.is--loaded) > * {
+		opacity: 0;
+		pointer-events: none;
+	}
+}
