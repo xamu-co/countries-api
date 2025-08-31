@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved */
-import _ from "lodash";
+import _ from "lodash-es";
 
 import { defineCachedEventHandler, getQuery, getRouterParam, useStorage } from "#imports";
 
@@ -30,7 +30,10 @@ export default defineCachedEventHandler(
 				} else if (!supportedLangs.includes(lang)) {
 					const langs = supportedLangs.join(", ");
 
-					return JsonResponse(`Unsupported translation, supported ones are: ${langs}`, 422);
+					return JsonResponse(
+						`Unsupported translation, supported ones are: ${langs}`,
+						422
+					);
 				}
 			}
 

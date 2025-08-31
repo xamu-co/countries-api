@@ -1,9 +1,27 @@
 {
     "prettier.configPath": "./.prettierrc",
+    "files.associations": {
+        "*.svg": "html",
+        ".sassdocrc": "yaml",
+        "*.html": "html"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
     "[jsonc]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[vue]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "eslint.validate": [
+        "javascript",
+        "vue"
+    ]
 }
