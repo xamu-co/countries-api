@@ -1,6 +1,6 @@
 Countries Nuxt Module
 
-# [2.0.0-next.1](https://github.com/xamu-co/countries-api/compare/v1.1.0...v2.0.0-next.1) (2025-08-31)
+# [2.0.0](https://github.com/xamu-co/countries-api/compare/v1.1.0...v2.0.0) (2025-08-31)
 
 
 ### Bug Fixes
