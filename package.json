@@ -31,17 +31,18 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/types.d.ts",
+      "types": "./dist/module.d.mts",
       "import": "./dist/module.mjs",
-      "require": "./dist/module.cjs"
+      "default": "./dist/module.mjs"
     }
   },
-  "main": "./dist/module.cjs",
-  "types": "./dist/types.d.ts",
+  "files": [
+    "dist"
+  ],
   "packageManager": "yarn@1.22.22",
   "engines": {
-    "node": ">=20.19.3",
-    "yarn": ">=1.22.4"
+    "node": ">=22.22.2",
+    "yarn": ">=1.22.22"
   },
   "scripts": {
     "lint:eslint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
@@ -50,49 +51,49 @@
     "countries": "node data/index.js",
     "build": "yarn countries && yarn build:prepack && nuxt-module-build build",
     "build:prepack": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+    "vendor:sass": "sass --load-path=node_modules app/assets/vendor.scss public/dist/vendor.css",
+    "vendor:postcss": "postcss public/dist/vendor.css -o public/dist/vendor.min.css --no-map",
+    "vendor": "yarn vendor:sass && yarn vendor:postcss --verbose",
     "dev": "nuxi dev playground",
     "dev:build": "yarn countries && nuxi build playground",
     "test": "vitest run",
     "test:watch": "vitest watch",
     "release": "semantic-release",
-    "release:dry": "semantic-release --dry-run"
+    "release:dry": "semantic-release --dry-run",
+    "prepare": "node .husky/install.mjs && nuxt prepare"
+  },
+  "dependencies": {
+    "@nuxt/kit": "^3.20.2"
   },
   "devDependencies": {
-    "@commitlint/cli": "^9.1.1",
-    "@commitlint/config-conventional": "^9.1.1",
-    "@nuxt/devtools": "latest",
-    "@nuxt/kit": "latest",
-    "@nuxt/module-builder": "latest",
-    "@nuxt/schema": "latest",
-    "@nuxt/test-utils": "latest",
+    "@commitlint/cli": "^20.3.1",
+    "@commitlint/config-conventional": "^20.3.1",
+    "@nuxt/devtools": "^3.1.1",
+    "@nuxt/module-builder": "^1.0.2",
+    "@nuxt/schema": "^3.20.2",
+    "@nuxt/test-utils": "^3.21.0",
     "@open-xamu-co/eslint-config": "^3.0.1",
-    "@open-xamu-co/ui-nuxt": "^3.0.0-next.11",
+    "@open-xamu-co/ui-nuxt": "^4.0.0-next.8",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/git": "^9.0.0",
     "@types/lodash-es": "^4.14.192",
-    "@types/node": "^20.19.3",
+    "@types/node": "^22.20.0",
     "@typescript-eslint/eslint-plugin": "^6.15.0",
     "@typescript-eslint/parser": "^6.15.0",
     "eslint": "^8.56.0",
-    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-prettier": "^10.1.8",
     "eslint-import-resolver-typescript": "^3.5.5",
     "eslint-plugin-import": "^2.27.5",
-    "eslint-plugin-prettier": "^5.0.0",
+    "eslint-plugin-prettier": "^5.5.6",
     "eslint-plugin-vue": "^9.15.1",
-    "husky": "^4.2.5",
-    "lint-staged": "^10.2.11",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "lodash-es": "^4.17.21",
-    "nuxt": "^3.18.1",
-    "prettier": "^3.0.0",
+    "nuxt": "^3.20.2",
+    "prettier": "^3.9.3",
     "semantic-release": "^17.1.1",
-    "typescript": "5.8.2",
-    "vitest": "^0.33.0"
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged"
-    }
+    "typescript": "^6.0.3",
+    "vitest": "^4.1.8"
   },
   "commitlint": {
     "extends": [

@@ -1,6 +1,9 @@
 import fs from "node:fs";
 import path from "node:path";
 
+import locale from "@open-xamu-co/ui-common-helpers/es";
+import { type Stylesheet, getStyleSheetPreload } from "@open-xamu-co/ui-nuxt";
+
 const production = process.env.NODE_ENV === "production";
 const title = "Xamu Countries ⋅ Free REST API with countries data & Nuxt module.";
 const keywords =
@@ -9,29 +12,27 @@ const description =
 	"Xamu Countries API offers REST endpoints with useful country data as well as their states and cities. Use our Nuxt module for faster responses";
 const canonical = "https://countries.xamu.com.co/";
 
-/**
- * Preload stylesheet and once loaded call them
- * @param {string} href - Resource url
- * @returns {object} Link object
- */
-function getStyleSheetPreload(href: string) {
-	return {
-		rel: "preload",
-		as: "style" as const,
-		onload: "this.onload=null;this.rel='stylesheet'",
-		href,
-	};
-}
-
-const loaderCss = fs.readFileSync(path.resolve(__dirname, "assets/css/loader.css"), {
+// Styling
+const loaderCss = fs.readFileSync(path.resolve(__dirname, "app/assets/loader.css"), {
 	encoding: "utf8",
 });
+const stylesheets: Stylesheet[] = [
+	"https://unpkg.com/@open-xamu-co/ui-styles@^5.0.0-next.9/dist/index.min.css",
+	"https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,700;0,900;1,300;1,500;1,700;1,900&display=swap",
+	"https://unpkg.com/@fortawesome/fontawesome-free@^6/css/all.min.css",
+	"https://unpkg.com/sweetalert2@^11/dist/sweetalert2.min.css",
+];
 
 export default defineNuxtConfig({
 	compatibilityDate: "2024-12-08",
 	devtools: { enabled: !production },
+	// Follow nuxt 4 directory structure
+	srcDir: "./app",
+	serverDir: "./server",
+	dir: { public: "../public" },
 	app: {
-		keepalive: true,
+		pageTransition: { name: "page", mode: "out-in" },
+		layoutTransition: { name: "layout", mode: "out-in" },
 		head: {
 			title,
 			meta: [
@@ -57,48 +58,30 @@ export default defineNuxtConfig({
 				{ rel: "canonical", href: canonical },
 				{
 					rel: "preconnect",
-					href: "https://fonts.googleapis.com/",
+					href: "https://fonts.googleapis.com",
 					crossorigin: "anonymous",
 				},
-				{ rel: "dns-prefetch", href: "https://fonts.googleapis.com/" },
-				{ rel: "preconnect", href: "https://unpkg.com/", crossorigin: "anonymous" },
-				{ rel: "dns-prefetch", href: "https://unpkg.com/" },
-				...[
-					"https://unpkg.com/@open-xamu-co/ui-styles@^3.0.0-next.31/dist/index.min.css",
-					"https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,700;0,900;1,300;1,500;1,700;1,900&display=swap",
-					"https://unpkg.com/@fortawesome/fontawesome-free@^6/css/all.min.css",
-					"https://unpkg.com/sweetalert2@^11/dist/sweetalert2.min.css",
-				].map(getStyleSheetPreload),
+				{ rel: "dns-prefetch", href: "https://fonts.googleapis.com" },
+				{
+					rel: "preconnect",
+					href: "https://fonts.gstatic.com",
+					crossorigin: "anonymous",
+				},
+				{ rel: "dns-prefetch", href: "https://fonts.gstatic.com" },
+				{ rel: "preconnect", href: "https://unpkg.com", crossorigin: "anonymous" },
+				{ rel: "dns-prefetch", href: "https://unpkg.com" },
+				...stylesheets.map(getStyleSheetPreload),
 			],
-			style: [{ innerHTML: loaderCss }],
+			style: [{ innerHTML: loaderCss, tagPriority: 0 }],
 			noscript: [{ innerHTML: "This app requires javascript to work" }],
-		},
-	},
-	router: {
-		options: {
-			linkActiveClass: "is--route",
-			linkExactActiveClass: "is--routeExact",
-			scrollBehaviorType: "smooth",
 		},
 	},
 	modules: ["../src/module", "@open-xamu-co/ui-nuxt"],
 	countries: { base: "/api/v1" },
 	xamu: {
-		swal: {
-			overrides: {
-				customClass: {
-					confirmButton: ["bttn"],
-					cancelButton: ["bttnToggle"],
-					denyButton: ["link"],
-				},
-			},
-			preventOverrides: {
-				customClass: {
-					confirmButton: ["bttn", "--tm-danger-light"],
-					cancelButton: ["bttnToggle"],
-					denyButton: ["link"],
-				},
-			},
-		},
+		locale,
+		lang: "es",
+		country: "CO",
+		disableCSSMeta: true,
 	},
 });

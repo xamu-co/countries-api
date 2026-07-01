@@ -7,7 +7,7 @@ export default defineNuxtModule<CountriesModuleOptions>({
 	meta: {
 		name: "nuxt-countries-api",
 		configKey: "countries",
-		compatibility: { nuxt: "^3.0.0" },
+		compatibility: { nuxt: ">=3.0.0" },
 	},
 	defaults: { base: "/_countries" },
 	async setup(moduleOptions, nuxt) {
