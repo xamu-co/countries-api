@@ -1,5 +1,17 @@
 Countries Nuxt Module
 
+# [3.0.0-next.1](https://github.com/xamu-co/countries-api/compare/v2.0.0...v3.0.0-next.1) (2026-07-01)
+
+
+### Features
+
+* extended nuxt support ([6cb6ccb](https://github.com/xamu-co/countries-api/commit/6cb6ccbfff8395aa5aaac1841684087ab8565082))
+
+
+### BREAKING CHANGES
+
+* node22 required
+
 # [2.0.0](https://github.com/xamu-co/countries-api/compare/v1.1.0...v2.0.0) (2025-08-31)
 
 
