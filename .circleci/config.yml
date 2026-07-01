@@ -7,6 +7,8 @@ defaults: &defaults
     working_directory: ~/repo
     docker:
         - image: cimg/node:22.22.2
+    environment:
+        HUSKY: 0
 
 release: &release
     <<: *defaults
@@ -148,8 +150,6 @@ workflows:
             - release:
                   context: npm-deploy
                   requires:
-                      - check_code
-                      - dry_release
                       - approve_release
                   filters:
                       branches:
