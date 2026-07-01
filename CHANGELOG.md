@@ -1,5 +1,22 @@
 Countries Nuxt Module
 
+# [3.0.0](https://github.com/xamu-co/countries-api/compare/v2.0.0...v3.0.0) (2026-07-01)
+
+
+### Bug Fixes
+
+* release pipeline setup ([bc69f59](https://github.com/xamu-co/countries-api/commit/bc69f5967a8edd285520cd5eaa97e4cb5d4d145a))
+
+
+### Features
+
+* extended nuxt support ([6cb6ccb](https://github.com/xamu-co/countries-api/commit/6cb6ccbfff8395aa5aaac1841684087ab8565082))
+
+
+### BREAKING CHANGES
+
+* node22 required
+
 # [3.0.0-next.2](https://github.com/xamu-co/countries-api/compare/v3.0.0-next.1...v3.0.0-next.2) (2026-07-01)
 
 
