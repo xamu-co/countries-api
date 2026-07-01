@@ -6,7 +6,7 @@ version: 2.1
 defaults: &defaults
     working_directory: ~/repo
     docker:
-        - image: cimg/node:20.19.3
+        - image: cimg/node:22.22.2
 
 release: &release
     <<: *defaults

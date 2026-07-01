@@ -1,5 +1,4 @@
 {
-	"parser": "@typescript-eslint/parser",
 	"parserOptions": {
 		"requireConfigFile": false,
 		"sourceType": "module"
@@ -9,47 +8,56 @@
 		"browser": true
 	},
 	"extends": [
-		"@open-xamu-co/eslint-config"
+		"@open-xamu-co/eslint-config",
+		"plugin:vue/vue3-recommended",
+		"plugin:prettier/recommended"
 	],
-	"ignorePatterns": [
-		"*Html.vue"
-	],
+	"rules": {
+		"prefer-const": [
+			"error",
+			{
+				"destructuring": "all"
+			}
+		],
+		"import/no-unresolved": "off",
+		"vue/require-default-prop": "off",
+		"vue/no-v-for-template-key-on-child": "off",
+		"vue/singleline-html-element-content-newline": "off",
+		"vue/script-indent": "off",
+		"vue/html-indent": "off",
+		"vue/max-attributes-per-line": [
+			"error",
+			{
+				"singleline": 5
+			}
+		],
+		"vue/html-self-closing": [
+			"error",
+			{
+				"html": {
+					"void": "always",
+					"normal": "never"
+				}
+			}
+		],
+		"vue/no-undef-components": "off",
+		"vue/multi-word-component-names": "off",
+		"vue/component-name-in-template-casing": [
+			"error",
+			"PascalCase"
+		],
+		"vue/prefer-true-attribute-shorthand": [
+			"error",
+			"always"
+		]
+	},
 	"overrides": [
 		{
 			"files": [
 				"*.vue"
 			],
-			"extends": [
-				"plugin:vue/vue3-recommended"
-			],
 			"rules": {
-				"indent": "off",
-				"vue/require-default-prop": "off",
-				"vue/no-v-for-template-key-on-child": "off",
-				"vue/singleline-html-element-content-newline": "off",
-				"vue/script-indent": "off",
-				"vue/html-indent": "off",
-				"vue/max-attributes-per-line": [
-					"error",
-					{
-						"singleline": 5
-					}
-				],
-				"vue/html-self-closing": [
-					"error",
-					{
-						"html": {
-							"void": "always",
-							"normal": "never"
-						}
-					}
-				],
-				"vue/no-undef-components": "off",
-				"vue/multi-word-component-names": "off",
-				"vue/component-name-in-template-casing": [
-					"error",
-					"PascalCase"
-				]
+				"indent": "off"
 			}
 		}
 	]
