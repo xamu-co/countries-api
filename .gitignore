@@ -33,7 +33,7 @@ reports
 coverage
 *.lcov
 .nyc_output
-
+cover.*
 # VSCode
 .vscode/*
 !.vscode/settings.json
