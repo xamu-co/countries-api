@@ -17,7 +17,7 @@ const loaderCss = fs.readFileSync(path.resolve(__dirname, "app/assets/loader.css
 	encoding: "utf8",
 });
 const stylesheets: Stylesheet[] = [
-	"https://unpkg.com/@open-xamu-co/ui-styles@^5.0.0-next.9/dist/index.min.css",
+	"https://unpkg.com/@open-xamu-co/ui-styles@^5.0.0-next.14/dist/index.min.css",
 	"https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,700;0,900;1,300;1,500;1,700;1,900&display=swap",
 	"https://unpkg.com/@fortawesome/fontawesome-free@^6/css/all.min.css",
 	"https://unpkg.com/sweetalert2@^11/dist/sweetalert2.min.css",

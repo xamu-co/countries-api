@@ -1889,31 +1889,31 @@
   resolved "https://registry.yarnpkg.com/@open-xamu-co/eslint-config/-/eslint-config-3.0.1.tgz#ca59152fa680710dfed911bfd1d30c68a5b64be4"
   integrity sha512-3CD5gCS405hUxbOM8rb+OEcWhIpZBomOXYwbGJjyHFM0LLh44duFgJk+IvEQRPCk1KesftKsRQfvsb26mn4gSA==
 
-"@open-xamu-co/ui-common-enums@^4.0.0-next.2", "@open-xamu-co/ui-common-enums@^4.0.0-next.3":
-  version "4.0.0-next.3"
-  resolved "https://registry.yarnpkg.com/@open-xamu-co/ui-common-enums/-/ui-common-enums-4.0.0-next.3.tgz#41666dd36b3c5bdb8287eb06bff9601f97c9d0e6"
-  integrity sha512-+lzfFqn9xHxR1zC7mKo+Cy/iDV0OtoV0W1OYAJot5REgtr1x8E/xysDAdZNhF3cz7WsPPQahqy2CdFoS6qBHTg==
+"@open-xamu-co/ui-common-enums@^4.0.0-next.4":
+  version "4.0.0-next.4"
+  resolved "https://registry.yarnpkg.com/@open-xamu-co/ui-common-enums/-/ui-common-enums-4.0.0-next.4.tgz#c8a42168241a26cb59f63878b52cd9698978fa53"
+  integrity sha512-u2PyyXkR0/ipDNPnrXSLRyF4/hhryL45ozQoIlVA5E8c26NfpE+WOD4n+HcXaXJSIYoC9Jsrhx1/xCwm1hqWAQ==
 
-"@open-xamu-co/ui-common-helpers@^4.0.0-next.4", "@open-xamu-co/ui-common-helpers@^4.0.0-next.8":
-  version "4.0.0-next.8"
-  resolved "https://registry.yarnpkg.com/@open-xamu-co/ui-common-helpers/-/ui-common-helpers-4.0.0-next.8.tgz#3be9586d742481659b095965d7410dd4ce9a3865"
-  integrity sha512-Y+46UOVeKJMP2d2x2qOfimC9N1bvu4TurdV70L5FSwmpDnHYQnnUCrYJlcQ8S/dsuVO+dnKBZ25rNn7r1AT1gA==
+"@open-xamu-co/ui-common-helpers@^4.0.0-next.10", "@open-xamu-co/ui-common-helpers@^4.0.0-next.14":
+  version "4.0.0-next.14"
+  resolved "https://registry.yarnpkg.com/@open-xamu-co/ui-common-helpers/-/ui-common-helpers-4.0.0-next.14.tgz#f07664f14018378f3e1168af3452d63001f79e18"
+  integrity sha512-IECEWYQefYVZgcEA4ej1JU5SV976c00bjPIU+wlwGkFFjkPW9/GMCXRKg2Bs36TmitPbxe6RwkX4poIQLc81oQ==
   dependencies:
-    "@open-xamu-co/ui-common-enums" "^4.0.0-next.3"
+    "@open-xamu-co/ui-common-enums" "^4.0.0-next.4"
     lodash-es "^4.17.21"
     sweetalert2 "^11.11.1"
     validator "^13.11.0"
 
-"@open-xamu-co/ui-components-vue@^4.0.0-next.9":
-  version "4.0.0-next.28"
-  resolved "https://registry.yarnpkg.com/@open-xamu-co/ui-components-vue/-/ui-components-vue-4.0.0-next.28.tgz#4f7725188103d09ab64148279470f7e7d74ca9bc"
-  integrity sha512-LWqJVqc5uBnE4mwiMD1XGdtHYWb9z7CTIruaMuBetzCZOvI1RtLVrE0V0tp8ZRsZN4al3TsdCxt9KHlg4wncjA==
+"@open-xamu-co/ui-components-vue@^4.0.0-next.30":
+  version "4.0.0-next.39"
+  resolved "https://registry.yarnpkg.com/@open-xamu-co/ui-components-vue/-/ui-components-vue-4.0.0-next.39.tgz#e8c110b9f3d8635656fcad143e67d567b928d2d6"
+  integrity sha512-bxVd422fyTGUiqIOVx2dmXrXKjNlLD/LjG+ESSsbA5c+0CxVrOhLHh/ugKC1Vo9zvQu8uxh37MZYJHZ5Og8lQA==
   dependencies:
     "@codemirror/lang-markdown" "^6.5.0"
     "@fortawesome/fontawesome-common-types" "^6.4.0"
     "@fsegurai/codemirror-theme-material-light" "^6.2.3"
-    "@open-xamu-co/ui-common-enums" "^4.0.0-next.3"
-    "@open-xamu-co/ui-common-helpers" "^4.0.0-next.8"
+    "@open-xamu-co/ui-common-enums" "^4.0.0-next.4"
+    "@open-xamu-co/ui-common-helpers" "^4.0.0-next.14"
     codemirror "^6.0.2"
     lodash-es "^4.17.21"
     markdown-it "^14.1.0"
@@ -1930,18 +1930,18 @@
     validator "^13.11.0"
     vue-color "^3.3.1"
 
-"@open-xamu-co/ui-nuxt@^4.0.0-next.8":
-  version "4.0.0-next.8"
-  resolved "https://registry.yarnpkg.com/@open-xamu-co/ui-nuxt/-/ui-nuxt-4.0.0-next.8.tgz#2e9ccd00142e3c96cbd77cd7560a273438e11ed1"
-  integrity sha512-tBL5sNsRWBjEV0rm6fwRHfhPsJc3osYAD2ceHavtpBhz4JHpxtI0x3fUdqa+ORSU3VU9cDUlqOATxUF3Q1EmrQ==
+"@open-xamu-co/ui-nuxt@^4.0.0-next.10":
+  version "4.0.0-next.10"
+  resolved "https://registry.yarnpkg.com/@open-xamu-co/ui-nuxt/-/ui-nuxt-4.0.0-next.10.tgz#20b814b67934229a3d16ae5ce48d29a5e1fc6b79"
+  integrity sha512-mkIATrolcc4MwW4bF+Kdd8I+khQEYtl0tgJiyiDIZuuio/aICooRj5CSr2hMX+9hoe6aaWOiX8mkRrR2b7yffQ==
   dependencies:
     "@nuxt/image" "^1.10.0"
     "@nuxt/kit" "^3.20.2"
-    "@open-xamu-co/ui-common-enums" "^4.0.0-next.2"
-    "@open-xamu-co/ui-common-helpers" "^4.0.0-next.4"
-    "@open-xamu-co/ui-components-vue" "^4.0.0-next.9"
+    "@open-xamu-co/ui-common-enums" "^4.0.0-next.4"
+    "@open-xamu-co/ui-common-helpers" "^4.0.0-next.10"
+    "@open-xamu-co/ui-components-vue" "^4.0.0-next.30"
     lodash-es "^4.17.21"
-    nuxt-countries-api "^2.0.0"
+    nuxt-countries-api "^3.0.0"
     sweetalert2 "^11.11.1"
 
 "@oxc-minify/binding-android-arm-eabi@0.132.0":
@@ -9023,10 +9023,12 @@ number-is-nan@^1.0.0:
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
   integrity sha512-4jbtZXNAsfZbAHiiqjLPBiCl16dES1zI4Hpzzxw61Tk+loF+sBDBKx1ICKKKwIqQ7M0mFn1TmkN7euSncWgHiQ==
 
-nuxt-countries-api@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/nuxt-countries-api/-/nuxt-countries-api-2.0.0.tgz#bc5996306b8ebe4bb31800b35b167701cfd34d05"
-  integrity sha512-IdtyMTvJGdD4sUOBCkoIlXduKil/bbpf5oGgEjY5JMTN+TmIkXe7OHkqJxFggczvbsbJ1oYiTgaojMAm7OKmeg==
+nuxt-countries-api@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/nuxt-countries-api/-/nuxt-countries-api-3.0.0.tgz#5fe74f9066e3b843c613a034398316dd7d9a35b9"
+  integrity sha512-yufCaKRi18kNQg22qU8DsVca2MN3mtCkaOlXY1fEG94hstoLJiHcgs5niCEloznT2s0yByZ+bc2whD1aVNOFUg==
+  dependencies:
+    "@nuxt/kit" "^3.20.2"
 
 nuxt@^3.20.2:
   version "3.21.8"
