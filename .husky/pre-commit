@@ -1,1 +1,2 @@
+node scripts/require-unlink.cjs
 lint-staged

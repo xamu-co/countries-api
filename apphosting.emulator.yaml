@@ -1,0 +1,25 @@
+# Settings for Backend (on Cloud Run).
+# See https://firebase.google.com/docs/app-hosting/configure#cloud-run
+runConfig:
+    minInstances: 0
+    maxInstances: 100
+    memoryMiB: 512
+
+# Environment variables and secrets.
+# Configure environment variables.
+# See https://firebase.google.com/docs/app-hosting/configure#user-defined-environment
+# Grant access to secrets in Cloud Secret Manager.
+# See https://firebase.google.com/docs/app-hosting/configure#secret-parameters
+env:
+    # Yarn
+    - variable: YARN_ENABLE_IMMUTABLE_INSTALLS
+      value: "false"
+      availability:
+          - BUILD
+          - RUNTIME
+    # Project
+    - variable: NODE_ENV
+      value: development
+      availability:
+          - BUILD
+          - RUNTIME
