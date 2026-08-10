@@ -27,15 +27,15 @@
 								>
 									nuxt module
 								</XamuActionLink>
-								for faster responses.
+								for more control and faster responses.
 							</b>
 						</p>
-						<p class="--txtSize-sm --txtColor-dark5">
+						<!-- <p class="--txtSize-sm --txtColor-dark5">
 							Currently we are hosted on
 							<XamuActionLink href="https://render.com/">render</XamuActionLink>
 							free tier, which spins downs with inactivity, delaying some responses up
 							to 50 secs.
-						</p>
+						</p> -->
 					</div>
 					<a href="/#endpoints" class="bttn --size-lg">
 						<span>Get started</span>

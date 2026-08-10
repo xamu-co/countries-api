@@ -1,0 +1,8 @@
+{
+  "emulators": {
+    "apphosting": {
+      "startCommand": "node playground/.output/server/index.mjs",
+      "rootDirectory": "."
+    }
+  }
+}

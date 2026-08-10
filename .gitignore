@@ -25,6 +25,10 @@ src/runtime/countries
 .build-*
 .netlify
 
+# Firebase App Hosting
+playground/.apphosting/
+apphosting.local.yaml
+
 # Env
 .env
 

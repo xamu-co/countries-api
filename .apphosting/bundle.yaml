@@ -1,0 +1,12 @@
+version: v1
+runConfig:
+  runCommand: node playground/.output/server/index.mjs
+metadata:
+  framework: nuxt
+  frameworkVersion: 3.21.11
+  adapterPackageName: nitropack
+  adapterVersion: 2.13.4
+outputFiles:
+  serverApp:
+    include:
+      - playground/.output

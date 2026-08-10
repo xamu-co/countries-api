@@ -19,6 +19,26 @@
 				"destructuring": "all"
 			}
 		],
+		"@typescript-eslint/no-empty-object-type": [
+			"error",
+			{
+				"allowInterfaces": "always"
+			}
+		],
+		"@typescript-eslint/no-unused-expressions": "off",
+		"@typescript-eslint/no-require-imports": "off",
+		"@typescript-eslint/no-unused-vars": [
+			"error",
+			{
+				"args": "all",
+				"argsIgnorePattern": "^_",
+				"caughtErrors": "all",
+				"caughtErrorsIgnorePattern": "^err$",
+				"destructuredArrayIgnorePattern": "^_",
+				"varsIgnorePattern": "^_",
+				"ignoreRestSiblings": true
+			}
+		],
 		"import/no-unresolved": "off",
 		"vue/require-default-prop": "off",
 		"vue/no-v-for-template-key-on-child": "off",

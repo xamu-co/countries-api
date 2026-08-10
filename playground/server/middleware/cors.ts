@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 import { defineEventHandler, setResponseHeaders } from "#imports";
 
 // TODO: Handle cors properly
