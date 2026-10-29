@@ -30,16 +30,18 @@ export const supportedLangs: tSupportedLangs[] = [
 ];
 
 export function getMatches(name: string): string[] {
-	const deburred = deburr(name);
+	const deburredName = deburr(name);
+	const [partialName = ""] = name.split(" ");
+	const [partialDeburredName = ""] = deburredName.split(" ");
 
 	return [
 		name,
-		deburred,
+		deburredName,
 		kebabCase(name),
-		kebabCase(deburred),
-		name.split(" ")[0],
-		deburred.split(" ")[0],
-	];
+		kebabCase(deburredName),
+		partialName,
+		partialDeburredName,
+	].filter((m) => !!m);
 }
 
 export function makeJsonResponse(event: any) {
