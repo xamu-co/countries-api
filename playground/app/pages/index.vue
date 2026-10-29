@@ -4,17 +4,18 @@
 			<div class="holder flx --flxColumn --flx-center --gap-30">
 				<div class="txt --gap-30">
 					<h1 class="flx --flxRow --flx-start-center">
-						<img class="avatar --size-sm --bgColor-none" src="/countries-api.png" />
+						<Img class="avatar --size-sm --bgColor-none" src="/countries-api.png" />
 						<span class="--txtColor">Xamu Countries</span>
 					</h1>
 					<div class="txt --gap-5">
 						<p class="--txtColor-dark5">
 							Public REST API with countries data, based on
-							<XamuActionLink
-								href="https://github.com/dr5hn/countries-states-cities-database"
+							<NuxtLink
+								class="link"
+								to="https://github.com/dr5hn/countries-states-cities-database"
 							>
 								@dr5hn countries database
-							</XamuActionLink>
+							</NuxtLink>
 							.
 						</p>
 					</div>
@@ -22,25 +23,26 @@
 						<p>
 							<b>
 								Use the
-								<XamuActionLink
-									href="https://www.npmjs.com/package/nuxt-countries-api"
+								<NuxtLink
+									class="link"
+									to="https://www.npmjs.com/package/nuxt-countries-api"
 								>
 									nuxt module
-								</XamuActionLink>
-								for faster responses.
+								</NuxtLink>
+								for more control and faster responses.
 							</b>
 						</p>
-						<p class="--txtSize-sm --txtColor-dark5">
+						<!-- <p class="--txtSize-sm --txtColor-dark5">
 							Currently we are hosted on
-							<XamuActionLink href="https://render.com/">render</XamuActionLink>
+							<NuxtLink to="https://render.com/">render</NuxtLink>
 							free tier, which spins downs with inactivity, delaying some responses up
 							to 50 secs.
-						</p>
+						</p> -->
 					</div>
-					<a href="/#endpoints" class="bttn --size-lg">
+					<NuxtLink to="/#endpoints" class="bttn --size-lg">
 						<span>Get started</span>
-						<XamuIconFa name="arrow-right" />
-					</a>
+						<i name="icon fa-solid fa-arrow-right"></i>
+					</NuxtLink>
 				</div>
 			</div>
 		</div>
@@ -56,16 +58,18 @@
 							<h3>Countries</h3>
 							<p class="--txtSize-sm --txtColor-dark5">
 								<span>Type&lt;</span>
-								<a class="link --tm-primary" href="#type-country">Country</a>
+								<NuxtLink class="link --tm-primary" to="#type-country">
+									Country
+								</NuxtLink>
 								<span>[]&gt;</span>
 							</p>
 						</div>
 						<p>
 							<b>
 								Get all
-								<XamuActionLink href="/api/v1">countries</XamuActionLink>
+								<NuxtLink class="link" to="/api/v1">countries</NuxtLink>
 								. To get
-								<XamuActionLink href="/api/v1?lang=es">translations</XamuActionLink>
+								<NuxtLink to="/api/v1?lang=es">translations</NuxtLink>
 								use the "lang" query.
 							</b>
 						</p>
@@ -79,7 +83,9 @@
 							<h3>Country</h3>
 							<p class="--txtSize-sm --txtColor-dark5">
 								<span>Type&lt;</span>
-								<a class="link --tm-primary" href="#type-country">Country</a>
+								<NuxtLink class="link --tm-primary" to="#type-country">
+									Country
+								</NuxtLink>
 								<span>&gt;</span>
 							</p>
 						</div>
@@ -87,7 +93,7 @@
 							<p>
 								<b>
 									Get a especific
-									<XamuActionLink href="/api/v1/colombia">country</XamuActionLink>
+									<NuxtLink class="link" to="/api/v1/colombia">country</NuxtLink>
 									.
 								</b>
 							</p>
@@ -100,9 +106,9 @@
 							<p>
 								<b>
 									Include the states using the
-									<XamuActionLink href="/api/v1/colombia?lang=es&states">
+									<NuxtLink class="link" to="/api/v1/colombia?lang=es&states">
 										"states"
-									</XamuActionLink>
+									</NuxtLink>
 									query.
 								</b>
 							</p>
@@ -118,22 +124,28 @@
 								<h3>State</h3>
 								<p class="--txtSize-sm --txtColor-dark5">
 									<span>Type&lt;</span>
-									<a class="link --tm-primary" href="#type-state">State</a>
+									<NuxtLink class="link --tm-primary" to="#type-state">
+										State
+									</NuxtLink>
 									<span>&gt;</span>
 								</p>
 							</div>
 							<p>
 								<b>
 									Get especific
-									<XamuActionLink href="/api/v1/colombia/valle-del-cauca?lang=es">
+									<NuxtLink
+										class="link"
+										to="/api/v1/colombia/valle-del-cauca?lang=es"
+									>
 										state
-									</XamuActionLink>
+									</NuxtLink>
 									. Include the cities using the
-									<XamuActionLink
-										href="/api/v1/colombia/valle-del-cauca?lang=es&cities"
+									<NuxtLink
+										class="link"
+										to="/api/v1/colombia/valle-del-cauca?lang=es&cities"
 									>
 										"cities"
-									</XamuActionLink>
+									</NuxtLink>
 									query.
 								</b>
 							</p>
@@ -154,18 +166,21 @@
 								<h3>City</h3>
 								<p class="--txtSize-sm --txtColor-dark5">
 									<span>Type&lt;</span>
-									<a class="link --tm-primary" href="#type-city">City</a>
+									<NuxtLink class="link --tm-primary" to="#type-city">
+										City
+									</NuxtLink>
 									<span>&gt;</span>
 								</p>
 							</div>
 							<p>
 								<b>
 									Get especific
-									<XamuActionLink
-										href="/api/v1/colombia/valle-del-cauca/cali?lang=es"
+									<NuxtLink
+										class="link"
+										to="/api/v1/colombia/valle-del-cauca/cali?lang=es"
 									>
 										city
-									</XamuActionLink>
+									</NuxtLink>
 									.
 								</b>
 							</p>
@@ -191,20 +206,18 @@
 					<h2 id="about">About the project</h2>
 					<p class="--txtSize-sm --txtColor-dark5">
 						Source:
-						<XamuActionLink href="https://github.com/xamu-co/countries-api">
+						<NuxtLink class="link" to="https://github.com/xamu-co/countries-api">
 							@xamu-co/countries-api
-						</XamuActionLink>
+						</NuxtLink>
 						. Built with
-						<XamuActionLink href="https://github.com/xamu-co/ui">
-							Xamu UI
-						</XamuActionLink>
+						<NuxtLink class="link" to="https://github.com/xamu-co/ui">Xamu UI</NuxtLink>
 						. Powered by
-						<XamuActionLink href="https://nuxt.com/">Nuxt3</XamuActionLink>
+						<NuxtLink class="link" to="https://nuxt.com/">Nuxt3</NuxtLink>
 						.
 					</p>
 					<p class="--txtColor-dark5">
 						This is an open source project, built and mantained by
-						<XamuActionLink href="https://github.com/vis97c">@vis97c</XamuActionLink>
+						<NuxtLink class="link" to="https://github.com/vis97c">@vis97c</NuxtLink>
 						. Feel free to use it on your projects or suggest improvements.
 					</p>
 				</div>

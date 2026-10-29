@@ -9,5 +9,10 @@
       "DOM",
       "DOM.Iterable"
     ]
-  }
+  },
+  "exclude": [
+    "dist",
+    "node_modules",
+    "playground",
+  ]
 }

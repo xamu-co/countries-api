@@ -1,5 +1,5 @@
 /* eslint-disable import/no-unresolved */
-import { defineEventHandler, setResponseHeaders } from "#imports";
+import { defineEventHandler, setResponseStatus, setResponseHeaders } from "#imports";
 
 interface iIP {
 	blockUntil: number;
@@ -34,23 +34,23 @@ class AccessLogger {
 		const limit = now - this.time;
 
 		for (const ip in this.requests) {
-			const { accessTimes, blockUntil } = this.requests[ip];
+			const { accessTimes = [], blockUntil = 0 } = this.requests[ip] || {};
 
 			// if not currently blocking this one
 			if (blockUntil >= now) continue;
 
 			// if newest access is older than time limit, then nuke the whole item
-			if (!accessTimes.length || accessTimes[accessTimes.length - 1] < limit) {
+			if ((!accessTimes.length || accessTimes[accessTimes.length - 1]) ?? 0 < limit) {
 				delete this.requests[ip];
 			} else {
 				// in case an ip is regularly visiting so its recent access is never old
 				// we must age out older access times to keep them from
 				// accumulating forever
-				if (accessTimes.length > this.quantity * 2 && accessTimes[0] < limit) {
+				if ((accessTimes.length > this.quantity * 2 && accessTimes[0]) ?? 0 < limit) {
 					let index = 0;
 
 					for (let i = 1; i < accessTimes.length; i++) {
-						if (accessTimes[i] < limit) {
+						if (accessTimes[i] ?? 0 < limit) {
 							index = i;
 						} else {
 							break;
@@ -74,7 +74,7 @@ class AccessLogger {
 		this.add(ip);
 
 		// should always be an info here because we just added it
-		const { accessTimes, blockUntil } = this.requests[ip];
+		const { accessTimes = [], blockUntil = 0 } = this.requests[ip] || {};
 		// calc time limits
 		const now = Date.now();
 		const limit = now - this.time;
@@ -86,7 +86,7 @@ class AccessLogger {
 		if (accessTimes.length < this.quantity) return true;
 
 		for (let i = accessTimes.length - 1; i >= 0; i--) {
-			if (accessTimes[i] > limit) {
+			if (accessTimes[i] ?? 0 > limit) {
 				++count;
 
 				continue;
@@ -98,7 +98,7 @@ class AccessLogger {
 
 		if (count > this.quantity) {
 			// block from now until (now + this.blockTime)
-			this.requests[ip].blockUntil = now + this.blockTime;
+			if (this.requests[ip]) this.requests[ip].blockUntil = now + this.blockTime;
 
 			return false;
 		}

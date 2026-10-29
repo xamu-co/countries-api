@@ -1,5 +1,5 @@
-/* eslint-disable import/no-unresolved */
-import _ from "lodash-es";
+import kebabCase from "lodash-es/kebabCase.js";
+import deburr from "lodash-es/deburr.js";
 
 import { setResponseStatus } from "#imports";
 
@@ -30,15 +30,15 @@ export const supportedLangs: tSupportedLangs[] = [
 ];
 
 export function getMatches(name: string): string[] {
-	const deburr = _.deburr(name);
+	const deburred = deburr(name);
 
 	return [
 		name,
-		deburr,
-		_.kebabCase(name),
-		_.kebabCase(deburr),
+		deburred,
+		kebabCase(name),
+		kebabCase(deburred),
 		name.split(" ")[0],
-		deburr.split(" ")[0],
+		deburred.split(" ")[0],
 	];
 }
 

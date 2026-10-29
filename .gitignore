@@ -25,6 +25,10 @@ src/runtime/countries
 .build-*
 .netlify
 
+# Firebase App Hosting
+playground/.apphosting/
+apphosting.local.yaml
+
 # Env
 .env
 
@@ -33,7 +37,7 @@ reports
 coverage
 *.lcov
 .nyc_output
-
+cover.*
 # VSCode
 .vscode/*
 !.vscode/settings.json

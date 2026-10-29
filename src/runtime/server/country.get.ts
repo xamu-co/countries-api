@@ -1,5 +1,4 @@
-/* eslint-disable import/no-unresolved */
-import _ from "lodash-es";
+import kebabCase from "lodash-es/kebabCase.js";
 
 import { defineCachedEventHandler, getQuery, getRouterParam, useStorage } from "#imports";
 
@@ -38,8 +37,8 @@ export default defineCachedEventHandler(
 			}
 
 			const mapCountryData = makeMapCountryData(lang, withStates, withCities);
-			const countryParam = getRouterParam(event, "country");
-			const countries: iCountry[] = await storage.getItem("index.json");
+			const countryParam = getRouterParam(event, "country") || "";
+			const countries = (await storage.getItem("index.json")) as iCountry[];
 			const country = countries.find(({ name, iso2, iso3, translations }) => {
 				const matchable = [...getMatches(name), iso2, iso3, ...Object.values(translations)];
 
@@ -54,8 +53,9 @@ export default defineCachedEventHandler(
 				return JsonResponse("No country with the given data was found", 404);
 			}
 
-			const countryPath = `${_.kebabCase(country.name)}.json`;
-			const countryData: iCountry = await storage.getItem(countryPath);
+			const countryData = (await storage.getItem(
+				`${kebabCase(country.name)}.json`
+			)) as iCountry;
 
 			// Specific country
 			return JsonResponse(mapCountryData(countryData));

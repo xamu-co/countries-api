@@ -1,4 +1,3 @@
-/* eslint-disable import/no-unresolved */
 import { defineCachedEventHandler, getQuery, useStorage } from "#imports";
 
 import type { iCountry, tSupportedLangs } from "../../types";
@@ -34,7 +33,7 @@ export default defineCachedEventHandler(
 			}
 
 			const mapCountryData = makeMapCountryData(lang);
-			const countries: iCountry[] = await storage.getItem("index.json");
+			const countries = (await storage.getItem("index.json")) as iCountry[];
 
 			// All countries
 			return JsonResponse(countries.map(mapCountryData));

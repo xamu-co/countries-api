@@ -6,7 +6,7 @@ version: 2.1
 defaults: &defaults
     working_directory: ~/repo
     docker:
-        - image: cimg/node:22.22.2
+        - image: cimg/node:22.22.3
     environment:
         HUSKY: 0
 

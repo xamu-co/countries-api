@@ -13,11 +13,11 @@
                   name: <span class="--txtColor-primary --txtStyle">string</span>;
                </p>
                <p class="--txtWrap">
-                  state?: <a class="link --txtStyle" href="#type-state">State</a>;
+                  state?: <NuxtLink class="link --txtStyle" to="#type-state">State</NuxtLink>;
                   <span class="--txtColor-secondary4"># With "state" querie</span>
                </p>
                <p class="--txtWrap">
-                  country?: <a class="link --txtStyle" href="#type-state">Country</a>;
+                  country?: <NuxtLink class="link --txtStyle" to="#type-state">Country</NuxtLink>;
                   <span class="--txtColor-secondary4"># With "country" querie</span>
                </p>
             </div>
@@ -44,11 +44,11 @@
                   longitude: <span class="--txtColor-primary --txtStyle">string</span>;
                </p>
                <p class="--txtWrap">
-                  cities?: <a class="link --txtStyle" href="#type-state">City</a> [];
+                  cities?: <NuxtLink class="link --txtStyle" to="#type-state">City</NuxtLink> [];
                   <span class="--txtColor-secondary4"># With "cities" querie</span>
                </p>
                <p class="--txtWrap">
-                  country?: <a class="link --txtStyle" href="#type-state">Country</a>;
+                  country?: <NuxtLink class="link --txtStyle" to="#type-state">Country</NuxtLink>;
                   <span class="--txtColor-secondary4"># With "country" querie</span>
                </p>
             </div>
@@ -84,7 +84,7 @@
                   longitude: <span class="--txtColor-primary --txtStyle">string</span>;
                </p>
                <p class="--txtWrap">
-                  states?: <a class="link --txtStyle" href="#type-state">State</a> [];
+                  states?: <NuxtLink class="link --txtStyle" to="#type-state">State</NuxtLink> [];
                   <span class="--txtColor-secondary4"># With "states" querie</span>
                </p>
             </div>
