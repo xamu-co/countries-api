@@ -1,5 +1,12 @@
 Countries Nuxt Module
 
+## [3.0.1](https://github.com/xamu-co/countries-api/compare/v3.0.0...v3.0.1) (2026-10-29)
+
+
+### Bug Fixes
+
+* get non empty country name matches ([1d45a47](https://github.com/xamu-co/countries-api/commit/1d45a479439ff90bce595ca650c89b26d68b9f00))
+
 # [3.0.0](https://github.com/xamu-co/countries-api/compare/v2.0.0...v3.0.0) (2026-07-01)
 
 
