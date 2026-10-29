@@ -1,9 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
 
-import locale from "@open-xamu-co/ui-common-helpers/es";
-import { type Stylesheet, getStyleSheetPreload } from "@open-xamu-co/ui-nuxt";
-
 const production = process.env.NODE_ENV === "production";
 const title = "Xamu Countries ⋅ Free REST API with countries data & Nuxt module.";
 const keywords =
@@ -16,20 +13,31 @@ const canonical = "https://countries.xamu.com.co/";
 const loaderCss = fs.readFileSync(path.resolve(__dirname, "app/assets/loader.css"), {
 	encoding: "utf8",
 });
-const stylesheets: Stylesheet[] = [
+const stylesheets: string[] = [
 	"https://unpkg.com/@open-xamu-co/ui-styles@^5.0.0-next.15/dist/index.min.css",
 	"https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,500;0,700;0,900;1,300;1,500;1,700;1,900&display=swap",
 	"https://unpkg.com/@fortawesome/fontawesome-free@^6/css/all.min.css",
 	"https://unpkg.com/sweetalert2@^11/dist/sweetalert2.min.css",
 ];
 
+/**
+ * Preload stylesheet and once loaded call them
+ * @param {string} href - Resource url
+ * @returns {object} Link object
+ */
+export function getStyleSheetPreload(href: string): Record<string, any> {
+	return {
+		rel: "preload",
+		as: "style" as const,
+		onload: "this.onload=null;this.rel='stylesheet'",
+		href,
+	};
+}
+
 export default defineNuxtConfig({
 	compatibilityDate: "2024-12-08",
 	devtools: { enabled: !production },
 	// Follow nuxt 4 directory structure
-	srcDir: "./app",
-	serverDir: "./server",
-	dir: { public: "../public" },
 	app: {
 		pageTransition: { name: "page", mode: "out-in" },
 		layoutTransition: { name: "layout", mode: "out-in" },
@@ -80,13 +88,6 @@ export default defineNuxtConfig({
 		compressPublicAssets: true,
 		preset: "firebase_app_hosting",
 	},
-	modules: ["../src/module", "@open-xamu-co/ui-nuxt"],
+	modules: ["../src/module"],
 	countries: { base: "/api/v1" },
-	xamu: {
-		locale,
-		lang: "es",
-		country: "CO",
-		disableCSSMeta: true,
-		disableCountriesModule: true,
-	},
 });

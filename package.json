@@ -31,16 +31,23 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/module.d.mts",
-      "import": "./dist/module.mjs",
-      "default": "./dist/module.mjs"
+      "types": "./dist/types.d.mts",
+      "import": "./dist/module.mjs"
+    }
+  },
+  "main": "./dist/module.mjs",
+  "typesVersions": {
+    "*": {
+      ".": [
+        "./dist/types.d.mts"
+      ]
     }
   },
   "files": [
     "dist"
   ],
   "engines": {
-    "node": ">=22.22.2",
+    "node": ">=22.22.3",
     "yarn": "1.22.22"
   },
   "scripts": {
@@ -50,12 +57,13 @@
     "lint": "yarn lint:eslint && yarn lint:prettier",
     "countries": "node data/index.js",
     "build": "yarn countries && yarn build:prepack && nuxt-module-build build",
-    "build:prepack": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
+    "build:prepack": "nuxt-module-build build && nuxt prepare playground",
     "vendor:sass": "sass --load-path=node_modules app/assets/vendor.scss public/dist/vendor.css",
     "vendor:postcss": "postcss public/dist/vendor.css -o public/dist/vendor.min.css --no-map",
     "vendor": "yarn vendor:sass && yarn vendor:postcss --verbose",
-    "dev": "nuxi dev playground",
-    "dev:build": "yarn countries && nuxi build playground && node scripts/postbuild.cjs",
+    "dev": "yarn dev:prepare && nuxt dev playground",
+    "dev:build": "yarn countries && nuxt build playground && node scripts/postbuild.cjs",
+    "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxt prepare playground",
     "firebase:emulate": "yarn gcp-build && firebase emulators:start --only apphosting",
     "test": "vitest run",
     "test:watch": "vitest watch",
@@ -64,20 +72,16 @@
     "prepare": "node .husky/install.mjs && nuxt prepare"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.20.2"
+    "@nuxt/kit": "^4.6.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.3.1",
     "@commitlint/config-conventional": "^20.3.1",
-    "@nuxt/devtools": "^3.1.1",
-    "@nuxt/module-builder": "^1.0.2",
-    "@nuxt/schema": "^3.20.2",
-    "@nuxt/test-utils": "^3.21.0",
+    "@nuxt/devtools": "^3.4.2",
+    "@nuxt/module-builder": "^1.0.3",
+    "@nuxt/schema": "^4.6.3",
+    "@nuxt/test-utils": "^4.3.3",
     "@open-xamu-co/eslint-config": "^3.0.1",
-    "@open-xamu-co/ui-common-enums": "^4.0.0-next.4",
-    "@open-xamu-co/ui-common-helpers": "^4.0.0-next.14",
-    "@open-xamu-co/ui-components-vue": "^4.0.0-next.40",
-    "@open-xamu-co/ui-nuxt": "^4.0.0-next.8",
     "@semantic-release/changelog": "^5.0.1",
     "@semantic-release/git": "^9.0.0",
     "@types/lodash-es": "^4.14.192",
@@ -93,7 +97,7 @@
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
     "lodash-es": "^4.17.21",
-    "nuxt": "^3.21.8",
+    "nuxt": "^4.6.3",
     "prettier": "^3.9.3",
     "semantic-release": "^17.1.1",
     "typescript": "^6.0.3",

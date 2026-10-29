@@ -9,18 +9,19 @@
 						<template v-if="error.statusCode >= 500 && error.statusCode <= 599">
 							<p>You can try:</p>
 							<div class="flx --flxRow-wrap --flx-center">
-								<XamuActionLink rel="noopener" @click="reload">
+								<NuxtLink class="link" rel="noopener" @click="reload">
 									<span>Retry</span>
-								</XamuActionLink>
+								</NuxtLink>
 							</div>
 						</template>
-						<XamuActionLink
+						<NuxtLink
 							v-else
+							class="link"
 							rel="noopener"
 							@click="clearError({ redirect: '/' })"
 						>
 							Back home
-						</XamuActionLink>
+						</NuxtLink>
 					</div>
 				</div>
 			</div>
